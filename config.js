@@ -1,5 +1,6 @@
 //Local Variable
-if (process.env.NODE_ENV !== 'depolyment') {
+console.log(porcess.env.NODE_ENV)
+if (process.env.NODE_ENV !== 'deployment') {
 require('dotenv').load();
 console.log(process.env.DATABASE_URL)
     }
