@@ -1,0 +1,31 @@
+{
+  "name": "stargarnet",
+  "version": "1.0.0",
+  "description": "homepage for stargarnet.io",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/zachkohl/stargarnet.git"
+  },
+  "author": "zach kohl",
+  "bugs": {
+    "url": "https://github.com/zachkohl/stargarnet/issues"
+  },
+  "homepage": "https://github.com/zachkohl/KingsClub#readme",
+  "engines": {
+    "node": "8.9.1"
+  },
+  "dependencies": {
+    "body-parser": "^1.18.3",
+    "connect-pg-simple": "^5.0.0",
+    "dotenv": "^6.0.0",
+    "express": "^4.16.3",
+    "express-handlebars": "^3.0.0",
+    "express-session": "^1.15.6",
+    "helmet": "^3.13.0",
+    "pg": "^7.5.0"
+  }
+}
