@@ -1,8 +1,6 @@
 //Local Variable
-console.log(process.env.NODE_ENV)
 if (process.env.NODE_ENV !== 'production') {
 require('dotenv').load();
-console.log(process.env.DATABASE_URL)
     }
 //prep export object
 config = {};
@@ -73,42 +71,42 @@ config.query = query;
 config.pool = pool;
 config.client = client;
 //Session +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-const session = require('express-session');
-pgSession = require('connect-pg-simple')(session); //This all ends up encrypted on the client side. Used wireshark to check. 
+// const session = require('express-session');
+// pgSession = require('connect-pg-simple')(session); //This all ends up encrypted on the client side. Used wireshark to check. 
 
-var sess = {
-  store: new pgSession({
-    pool : pool,                // Connection pool
-     // Use another table-name than the default "session" one
-  }),
-  secret: 'VERY VERY SECRET',
-  cookie: {},
-  resave: false,
-  saveUninitialized: true
-}
+// var sess = {
+//   store: new pgSession({
+//     pool : pool,                // Connection pool
+//      // Use another table-name than the default "session" one
+//   }),
+//   secret: 'VERY VERY SECRET',
+//   cookie: {},
+//   resave: false,
+//   saveUninitialized: true
+// }
  
-if (app.get('env') === 'production') {
-  app.set('trust proxy', 1) // trust first proxy
-  sess.cookie.secure = true // serve secure cookies
-}
+// if (app.get('env') === 'production') {
+//   app.set('trust proxy', 1) // trust first proxy
+//   sess.cookie.secure = true // serve secure cookies
+// }
  
-app.use(session(sess))
+// app.use(session(sess))
 
-//Session stuff
-//https://www.npmjs.com/package/express-session
-//https://www.npmjs.com/package/connect-pg-simple
-//https://www.tutorialspoint.com/expressjs/expressjs_authentication.htm (seems very good)
+// //Session stuff
+// //https://www.npmjs.com/package/express-session
+// //https://www.npmjs.com/package/connect-pg-simple
+// //https://www.tutorialspoint.com/expressjs/expressjs_authentication.htm (seems very good)
 
-function checkSession(req, res, next) {
-  if (req.session.user){ //Does the session exist? Recall that the express-session is using its own id system in the background to hook into a specific user profile. 
-    res.locals.layout = "loggedin";
-    next(); //https://stackoverflow.com/questions/10695629/what-is-the-parameter-next-used-for-in-express Basically next is a special object in express that passes control to the next MATCHING route
-  } else {
-    res.redirect('login');
-    process.stdout.write('not logged in');
+// function checkSession(req, res, next) {
+//   if (req.session.user){ //Does the session exist? Recall that the express-session is using its own id system in the background to hook into a specific user profile. 
+//     res.locals.layout = "loggedin";
+//     next(); //https://stackoverflow.com/questions/10695629/what-is-the-parameter-next-used-for-in-express Basically next is a special object in express that passes control to the next MATCHING route
+//   } else {
+//     res.redirect('login');
+//     process.stdout.write('not logged in');
 
-  }
-};
+//   }
+// };
 
 //Socket.io++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 // var server = require('http').Server(app);
