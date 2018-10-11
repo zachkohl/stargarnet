@@ -18,7 +18,7 @@ app.use(bodyParser.urlencoded({
   }));
   app.use(bodyParser.json()); 
 var exphbs = require('express-handlebars');
-app.engine('handlebars', exphbs({defaultLayout: 'loggedout'}));
+app.engine('handlebars', exphbs({defaultLayout: 'default'}));
 app.set('view engine', 'handlebars');
 app.set('views', path.join(__dirname, 'views'));
 app.use(express.static('static'));
