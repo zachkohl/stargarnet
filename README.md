@@ -1,2 +1,2 @@
 # stargarnet
-home page for stargarnet.io
+home page for stargarnet.net
